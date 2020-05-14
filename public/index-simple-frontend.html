@@ -1,0 +1,347 @@
+<html>
+
+<head>
+  <title>Wheel Deal</title>
+  <meta name="author" content="6.170 Staff">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/services.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Wheel Deal</h1>
+  </header>
+
+  <main class="two-col">
+    <section id="operations-container">
+      <h2>Account Operations:</h2>
+      <div class="scrollbox">
+        <form id="create-user">
+          <h3>Create Account</h3>
+          <div>
+            <label for="username">Username:</label>
+            <input id="username" name="username">
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input id="password" name="password">
+          </div>
+          <div>
+            <label for="name">Full Name:</label>
+            <input id="name" name="name">
+          </div>
+          <div>
+            <label for="phone">Phone Number:</label>
+            <input id="phone" name="phone">
+          </div>
+          <input type="submit" value="Create User">
+        </form>
+
+        <!-- <form id="delete-user">
+          <h3>Delete User</h3>
+          <input type="submit" value="Delete User">
+        </form> -->
+
+        <!-- <form id="change-username">
+          <h3>Change Username</h3>
+          <div>
+            <label for="username">New Username:</label>
+            <input id="username" name="username">
+          </div>
+          <input type="submit" value="Change Username">
+        </form> -->
+
+        <form id="change-password">
+          <h3>Change Password</h3>
+          <div>
+            <label for="password">New Password:</label>
+            <input id="password" name="password">
+          </div>
+          <input type="submit" value="Change Password">
+        </form>
+
+        <form id="sign-in">
+          <h3>Sign In</h3>
+          <div>
+            <label for="username">Username:</label>
+            <input id="username" name="username">
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input id="password" name="password">
+          </div>
+          <input type="submit" value="Sign In">
+        </form>
+
+        <form id="sign-out">
+          <h3>Sign Out</h3>
+          <input type="submit" value="Sign out">
+        </form>
+
+        <!-- <form id="payment-method">
+          <h3>Add Payment Method</h3>
+          <div>
+            <label for="cardNumber">Card Number:</label>
+            <input id="cardNumber" name="cardNumber">
+          </div>
+          <input type="submit" value="Add Payment Method">
+        </form> -->
+
+        <!-- <form id="user-review">
+          <h3>Add User Review</h3>
+          <div>
+            <label for="username">Username:</label>
+            <input id="username" name="username">
+          </div>
+          <div>
+            <label for="userRating">Rating (out of 5):</label>
+            <input id="rating" name="rating">
+          </div>
+          <div>
+            <label for="userReview">Review:</label>
+            <input id="userReview" name="userReview">
+          </div>
+          <input type="submit" value="Add Payment Method">
+        </form> -->
+      </div>
+    </section>
+
+    <section id="bike-container">
+      <h2>Bike Operations:</h2>
+      <div class="scrollbox">
+
+        <form id="view-all-bikes">
+            <h3>View All Bikes</h3>
+            <input type="submit" value="View All Bikes">
+          </form>
+
+        <form id="view-bikes-by-location">
+          <h3>View Bikes By Location</h3>
+          <div>
+            <label for="latitude">Latitude (in degrees):</label>
+            <input id="latitude" name="latitude">
+          </div>
+          <div>
+            <label for="longitude">Longitude (in degrees):</label>
+            <input id="longitude" name="longitude">
+          </div>
+          <input type="submit" value="View Bikes By Location">
+        </form>
+
+        <form id="view-bikes-by-availability">
+          <h3>View Bikes By Availability</h3>
+          <div>
+            <!-- <label for="startTime">Start: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="startTime">Start: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="startTime" name="startTime">
+          </div>
+          <div>
+            <!-- <label for="endTime">End: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="endTime">End: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="endTime" name="endTime">
+          </div>
+          <input type="submit" value="View Bikes By Availability">
+        </form>
+
+        <form id="view-bikes-by-location-availability">
+          <h3>View Bikes By Location & Availability</h3>
+          <h4>Location:</h4>
+          <div>
+            <label for="latitude">Latitude (in degrees):</label>
+            <input id="latitude" name="latitude">
+          </div>
+          <div>
+            <label for="longitude">Longitude (in degrees):</label>
+            <input id="longitude" name="longitude">
+          </div>
+          <br>
+          <h4>Availability:</h4>
+          <div>
+            <!-- <label for="startTime">Start: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="startTime">Start: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="startTime" name="startTime">
+          </div>
+          <div>
+            <!-- <label for="endTime">End: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="endTime">End: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="endTime" name="endTime">
+          </div>
+          <input type="submit" value="View Bikes By Location & Availability">
+        </form>
+
+        <form id="create-bike">
+          <h3>Create Bike</h3>
+          <div>
+            <label for="type">Type:</label>
+            <select id="type" name="type">
+              <option value="hybrid" selected>Hybrid</option>
+              <option value="mountain">Mountain</option>
+              <option value="road">Road</option>
+            </select>
+          </div>
+          <br>
+          <h4>Location:</h4>
+          <div>
+            <label for="latitude">Latitude (in degrees):</label>
+            <input id="latitude" name="latitude">
+          </div>
+          <div>
+            <label for="longitude">Longitude (in degrees):</label>
+            <input id="longitude" name="longitude">
+          </div>
+          <br>
+          <h4>Availability:</h4>
+          <div>
+            <!-- <label for="startTime">Start: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="startTime">Start: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="startTime" name="startTime">
+          </div>
+          <div>
+            <!-- <label for="endTime">End: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="endTime">End: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="endTime" name="endTime">
+          </div>
+          <br>
+          <h4>Price:</h4>
+          <div>
+            <label for="timeframe">Time Frame:</label>
+            <select id="timeframe" name="timeframe">
+              <!-- <option value="hourly" selected>Hourly</option> -->
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+          <div>
+            <label for="price">Price (in USD):</label>
+            <input id="price" name="price">
+          </div>
+          <input type="submit" value="Create Bike">
+        </form>
+
+        <form id="set-bike-location">
+          <h3>Set Bike Location</h3>
+          <div>
+            <label for="id">Bike ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <label for="latitude">Latitude (in degrees):</label>
+            <input id="latitude" name="latitude">
+          </div>
+          <div>
+            <label for="longitude">Longitude (in degrees):</label>
+            <input id="longitude" name="longitude">
+          </div>
+          <input type="submit" value="Set Bike Location">
+        </form>
+
+        <form id="set-bike-availability">
+          <h3>Set Bike Availability</h3>
+          <div>
+            <label for="id">Bike ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <!-- <label for="startTime">Start: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="startTime">Start: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="startTime" name="startTime">
+          </div>
+          <div>
+            <!-- <label for="endTime">End: <span class="subtitle">Format YEAR-MONTH-DAY,TIME e.g. 2019-11-17,3pm</span></label> -->
+            <label for="endTime">End: <span class="subtitle">YYYY-MM-DD</span></label>
+            <input id="endTime" name="endTime">
+          </div>
+          <input type="submit" value="Set Bike Availability">
+        </form>
+
+        <form id="set-bike-price">
+          <h3>Set Bike Price</h3>
+          <div>
+            <label for="id">Bike ID:</label>
+            <input id="id" name="id">
+          </div>
+          <div>
+            <label for="timeframe">Time Frame:</label>
+            <select id="timeframe" name="timeframe">
+              <!-- <option value="hourly" selected>Hourly</option> -->
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+          <div>
+            <label for="price">Price (in USD):</label>
+            <input id="price" name="price">
+          </div>
+          <input type="submit" value="Set Bike Price">
+        </form>
+
+        <form id="delete-bike">
+          <h3>Delete Bike</h3>
+          <div>
+            <label for="id">Bike ID:</label>
+            <input id="id" name="id">
+          </div>
+          <input type="submit" value="Delete Bike">
+        </form>
+      </div>
+    </section>
+    <section id="ride-container">
+      <h2>Ride Operations:</h2>
+      <div class="scrollbox">
+
+        <form id="view-my-rides">
+            <h3>View My Rides</h3>
+            <input type="submit" value="View My Rides">
+        </form>
+
+        <form id="create-ride">
+          <h3>Create Ride</h3>
+          <div>
+            <label for="bikeId">Bike ID:</label>
+            <input id="bikeId" name="bikeId">
+          </div>
+          <div>
+            <label for="start">Start Time:</label>
+            <input id="start" name="start">
+          </div>
+          <div>
+            <label for="end">End Time:</label>
+            <input id="end" name="end">
+          </div>
+          <input type="submit" value="Create Ride">
+        </form>
+
+        <form id="cancel-ride">
+          <h3>Cancel Ride</h3>
+          <div>
+            <label for="id">Ride ID:</label>
+            <input id="id" name="id">
+          </div>
+          <input type="submit" value="Cancel Ride">
+        </form>
+
+        <form id="use-ride">
+          <h3>Use Ride</h3>
+          <div>
+            <label for="id">Ride ID:</label>
+            <input id="id" name="id">
+          </div>
+          <input type="submit" value="Use Ride">
+        </form>
+
+      </div>
+    </section>
+    <section>
+      <h2>Response:</h2>
+      <div class="scrollbox">
+        <pre id="response" class="teletype"></pre>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
